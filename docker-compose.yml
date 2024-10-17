@@ -1,0 +1,6 @@
+﻿services:
+  user.apı:
+    image: user.api
+    build:
+      context: .
+      dockerfile: src/Services/User/User.API/Dockerfile
