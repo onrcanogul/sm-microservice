@@ -6,7 +6,7 @@ using Shared.Base.Models;
 namespace Shared.Base.Repository;
 
 public class Repository<T, TContext>(TContext context)
-    : IRepository<T, TContext> where T : BaseEntity where TContext : BaseDbContext
+    : IRepository<T, TContext> where T : BaseEntity where TContext : DbContext
 {
     private DbSet<T> Table => context.Set<T>();
 

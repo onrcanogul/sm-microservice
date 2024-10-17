@@ -9,8 +9,8 @@ using Shared.Base.UnitOfWork;
 
 namespace Shared.Base.Service;
 
-public class ApplicationCrudService<T, TDto, TContext>(IRepository<T, TContext> repository, IMapper mapper, IUnitOfWork unitOfWork) 
-    : IApplicationCrudService<T, TDto> where T : BaseEntity where TDto : BaseDto where TContext : BaseDbContext
+public class ApplicationCrudService<T, TDto, TContext>(IRepository<T, TContext> repository, IMapper mapper, IUnitOfWork<TContext> unitOfWork) 
+    : IApplicationCrudService<T, TDto, TContext> where T : BaseEntity where TDto : BaseDto where TContext : DbContext
 {
     public async Task<ServiceResponse<List<TDto>>> GetListAsync(Expression<Func<T?, bool>>? predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, Func<IQueryable<T>, IQueryable<T>>? includeProperties = null,
         bool disableTracking = true)

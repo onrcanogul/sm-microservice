@@ -1,12 +1,12 @@
-using Shared.Base.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace Shared.Base.UnitOfWork;
 
-public class UnitOfWork(BaseDbContext context) : IUnitOfWork
+public class UnitOfWork<TContext>(TContext context) : IUnitOfWork<TContext> where TContext : DbContext
 {
     public async Task CommitAsync()
     {
-        await context.SaveChangesAsync(); 
+        await context.SaveChangesAsync();
     }
 
     public void Commit()

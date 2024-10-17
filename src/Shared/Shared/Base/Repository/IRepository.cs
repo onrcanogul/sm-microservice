@@ -1,10 +1,11 @@
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
 using Shared.Base.Context;
 using Shared.Base.Models;
 
 namespace Shared.Base.Repository;
 
-public interface IRepository<T,TContext> where T : BaseEntity where TContext : BaseDbContext
+public interface IRepository<T,TContext> where T : BaseEntity where TContext : DbContext
 {
     IQueryable<T> GetQueryable();
     Task<List<T>> GetListAsync(Expression<Func<T?, bool>>? predicate = null, 

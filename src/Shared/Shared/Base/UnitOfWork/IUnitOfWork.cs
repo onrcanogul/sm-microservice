@@ -1,6 +1,8 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace Shared.Base.UnitOfWork;
 
-public interface IUnitOfWork
+public interface IUnitOfWork<TContext> where TContext : DbContext
 {
     Task CommitAsync();
     void Commit();

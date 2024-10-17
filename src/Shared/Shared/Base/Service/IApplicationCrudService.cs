@@ -1,9 +1,11 @@
 using System.Linq.Expressions;
+using Microsoft.EntityFrameworkCore;
+using Shared.Base.Context;
 using Shared.Base.Models;
 
 namespace Shared.Base.Service;
 
-public interface IApplicationCrudService<T, TDto> where T : BaseEntity where TDto : BaseDto
+public interface IApplicationCrudService<T, TDto, TContext> where T : BaseEntity where TDto : BaseDto where TContext : DbContext
 {
     Task<ServiceResponse<List<TDto>>> GetListAsync(Expression<Func<T?, bool>>? predicate = null, 
         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
