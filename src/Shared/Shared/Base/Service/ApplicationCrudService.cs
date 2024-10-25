@@ -38,6 +38,7 @@ public class ApplicationCrudService<T, TDto, TContext>(IRepository<T, TContext> 
 
     public async Task<ServiceResponse<TDto>> CreateAsync(TDto dto)
     {
+        dto.Id = Guid.NewGuid();
         await repository.CreateAsync(mapper.Map<T>(dto));
         await unitOfWork.CommitAsync();
         return ServiceResponse<TDto>.Success(dto, StatusCodes.Status201Created);

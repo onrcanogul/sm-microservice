@@ -15,6 +15,10 @@ public class PostController(IPostService service) : AbstractBaseController
     public async Task<IActionResult> Get([FromRoute]Guid id)
         => ControllerResponse(await service.GetFirstOrDefaultAsync(x => x.Id == id));
     
+    [HttpGet("/user/{userId}")]
+    public async Task<IActionResult> GetByUser([FromRoute] Guid userId)
+        => ControllerResponse(await service.GetByUser(userId));
+    
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] PostDto dto)
         => ControllerResponse(await service.CreateAsync(dto));
