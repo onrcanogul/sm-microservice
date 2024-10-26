@@ -1,4 +1,5 @@
 using System.Reflection;
+using Microsoft.EntityFrameworkCore;
 using Post.API.Contexts;
 using Post.API.Services.Abstracts;
 using Post.API.Services.Concretes;
@@ -12,7 +13,7 @@ builder.Services.AddEfCoreServices();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Mapping)));
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddDbContext<PostDbContext>();
+builder.Services.AddDbContext<PostDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

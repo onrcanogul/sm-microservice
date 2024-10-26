@@ -47,6 +47,7 @@ public class ApplicationCrudService<T, TDto, TContext>(IRepository<T, TContext> 
     public async Task<ServiceResponse<TDto>> UpdateAsync(TDto dto)
     {
         var entity = await repository.GetFirstOrDefaultAsync(x => x.Id == dto.Id);
+        entity = mapper.Map(dto, entity);
         repository.Update(entity);
         await unitOfWork.CommitAsync();
         return ServiceResponse<TDto>.Success(dto, StatusCodes.Status200OK);

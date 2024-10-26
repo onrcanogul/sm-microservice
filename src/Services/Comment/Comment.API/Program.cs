@@ -4,6 +4,7 @@ using Comment.API.Contexts;
 using Comment.API.Services.Abstracts;
 using Comment.API.Services.Concretes;
 using Comment.API.Services.Mapping;
+using Microsoft.EntityFrameworkCore;
 using Shared.Base.Extensions;
 
 
@@ -11,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddEfCoreServices();
 builder.Services.AddScoped<ICommentService, CommentService>();
-builder.Services.AddDbContext<CommentDbContext>();
+builder.Services.AddDbContext<CommentDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Mapper)));

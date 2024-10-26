@@ -3,6 +3,7 @@ using Chat.API.Contexts;
 using Chat.API.Services.Abstacts;
 using Chat.API.Services.Concretes;
 using Chat.API.Services.Hubs;
+using Microsoft.EntityFrameworkCore;
 using Shared.Base.Extensions;
 using Mapper = Chat.API.Services.Mapping.Mapper;
 
@@ -13,7 +14,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IChatService, ChatService>();
-builder.Services.AddDbContext<ChatDbContext>();
+builder.Services.AddDbContext<ChatDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Mapper)));
 builder.Services.AddEfCoreServices();
 builder.Services.AddSignalR();

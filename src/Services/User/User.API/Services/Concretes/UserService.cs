@@ -30,7 +30,9 @@ public class UserService(UserManager<Models.User> manager, IMapper mapper, IToke
 
     public async Task<ServiceResponse<NoContent>> Register(RegisterDto dto)
     {
-        var result = await manager.CreateAsync(mapper.Map<Models.User>(dto), dto.Password);
+        var user = mapper.Map<Models.User>(dto);
+        user.Id = Guid.NewGuid().ToString();
+        var result = await manager.CreateAsync(user, dto.Password);
         return result.Succeeded == false ? ServiceResponse<NoContent>.Failure("Failed to create user", StatusCodes.Status400BadRequest) : ServiceResponse<NoContent>.Success(StatusCodes.Status201Created);
     }
 

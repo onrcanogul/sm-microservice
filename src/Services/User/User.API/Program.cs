@@ -2,9 +2,13 @@ using System.Reflection;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Shared.Base.Extensions;
+using User.API.Contexts;
+using User.API.Models;
 using User.API.Services.Abstracts;
+using User.API.Services.Concretes;
 using User.API.Services.Mappings;
 using TokenHandler = User.API.Services.Concretes.TokenHandler;
 
@@ -17,8 +21,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddEfCoreServices();
 builder.Services.AddAuthorization();
 builder.Services.AddScoped<ITokenHandler, TokenHandler>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<ITokenHandler, TokenHandler>();
+builder.Services.AddDbContext<UserDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Mapping)));
-
+builder.Services.AddIdentity<User.API.Models.User, Role>().AddEntityFrameworkStores<UserDbContext>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer("Admin", options =>
 {
     options.TokenValidationParameters = new()

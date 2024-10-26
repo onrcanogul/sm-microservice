@@ -4,6 +4,6 @@ using User.API.Models;
 
 namespace User.API.Contexts;
 
-public class UserDbContext(DbContextOptions<UserDbContext> options) : IdentityDbContext<Models.User, Role, string>
+public class UserDbContext(DbContextOptions<UserDbContext> options) : IdentityDbContext<Models.User, Role, string>(options)
 {
 }

@@ -3,6 +3,7 @@ using Friendship.API.Contexts;
 using Friendship.API.Services.Abstracts;
 using Friendship.API.Services.Concretes;
 using Friendship.API.Services.Mapping;
+using Microsoft.EntityFrameworkCore;
 using Shared.Base.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,7 +14,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IFriendshipService, FriendshipService>();
 builder.Services.AddEfCoreServices();
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Mapper)));
-builder.Services.AddDbContext<FriendshipDbContext>();
+builder.Services.AddDbContext<FriendshipDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();

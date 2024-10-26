@@ -3,7 +3,7 @@ using Notification.API.Models;
 
 namespace Notification.API.Contexts;
 
-public class NotificationDbContext : DbContext
+public class NotificationDbContext(DbContextOptions<NotificationDbContext> options) : DbContext(options)
 {
     public DbSet<Models.Notification> Notifications { get; set; }
     public DbSet<NotificationType> NotificationTypes { get; set; }
@@ -18,6 +18,8 @@ public class NotificationDbContext : DbContext
             .HasValue<SentCommentNotification>("SentComment")
             .HasValue<FriendshipRequestNotification>("FriendshipRequest")
             .HasValue<LikedPostNotification>("LikedPost");
+
+        modelBuilder.Entity<Models.Notification>().HasQueryFilter(x => !x.IsDeleted);
 
         base.OnModelCreating(modelBuilder);
     }

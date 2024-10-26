@@ -7,6 +7,8 @@ public class Mapping : Profile
 {
     public Mapping()
     {
-        CreateMap<Models.User, UserDto>();
+        CreateMap<Models.User, UserDto>().ReverseMap();
+        CreateMap<Models.User, RegisterDto>().ReverseMap();
+        CreateMap<Models.User, LoginDto>().ReverseMap();
     }
 }

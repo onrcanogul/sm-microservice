@@ -1,7 +1,9 @@
+using Media.API.Contexts;
 using Media.API.Models;
 using Media.API.Services.Abstract;
 using Media.API.Services.Concrete;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Shared.Base.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEfCoreServices();
 builder.Services.AddScoped(typeof(IMediaService<>), typeof(MediaService<>));
+builder.Services.AddDbContext<ImageDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
 
 
 var app = builder.Build();
