@@ -26,13 +26,13 @@ public class FriendshipController(IFriendshipService service) : AbstractBaseCont
     public async Task<IActionResult> Send([FromRoute] Guid senderId, [FromRoute] Guid receiverId)
         => ControllerResponse(await service.Send(senderId, receiverId));
     
-    [HttpPost("accept/{frienshipId:guid}")]
-    public async Task<IActionResult> Accept([FromRoute] Guid frienshipId)
-        => ControllerResponse(await service.Accept(frienshipId));
+    [HttpPost("accept/{friendshipId:guid}")]
+    public async Task<IActionResult> Accept([FromRoute] Guid friendshipId)
+        => ControllerResponse(await service.Accept(friendshipId));
     
-    [HttpPost("reject/{frienshipId:guid}")]
-    public async Task<IActionResult> Reject([FromRoute] Guid frienshipId)
-        => ControllerResponse(await service.Reject(frienshipId));
+    [HttpPost("reject/{friendshipId:guid}")]
+    public async Task<IActionResult> Reject([FromRoute] Guid friendshipId)
+        => ControllerResponse(await service.Reject(friendshipId));
 
     [HttpDelete("{friendshipId:guid}")]
     public async Task<IActionResult> Delete([FromRoute] Guid friendshipId)
