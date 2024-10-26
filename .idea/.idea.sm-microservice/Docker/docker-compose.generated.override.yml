@@ -1,0 +1,122 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  chat.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Chat/Chat.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Chat.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "chat.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Chat/Chat.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  comment.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Comment/Comment.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Comment.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "comment.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Comment/Comment.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  friendship.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Friendship/Friendship.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Friendship.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "friendship.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Friendship/Friendship.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  media.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Media/Media.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Media.API.dll"
+    environment:
+      ASPNETCORE_STATICWEBASSETS: "/app/bin/Debug/net8.0/Media.API.staticwebassets.runtime.CT.json"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "media.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Media/Media.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  notification.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Notification/Notification.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Notification.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "notification.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Notification/Notification.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  post.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Post/Post.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Post.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "post.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Post/Post.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  user.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/User/User.API/Dockerfile"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/User.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "user.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/User/User.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"

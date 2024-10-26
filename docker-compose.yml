@@ -1,6 +1,177 @@
 ﻿services:
-  user.apı:
+  chat.api:
+    image: chat.api
+    build:
+      context: .
+      dockerfile: src/Services/Chat/Chat.API/Dockerfile
+    ports:
+      - "5010:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5433;Database=sm-ChatDb;
+    depends_on:
+      - chat-db
+
+  chat-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-ChatDb
+    ports:
+      - "5433:5432"
+    volumes:
+      - chat_data:/var/lib/postgresql/data
+
+  comment.api:
+    image: comment.api
+    build:
+      context: .
+      dockerfile: src/Services/Comment/Comment.API/Dockerfile
+    ports:
+      - "5011:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5434;Database=sm-CommentDb;
+    depends_on:
+      - comment-db
+
+  comment-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-CommentDb
+    ports:
+      - "5434:5432"
+    volumes:
+      - comment_data:/var/lib/postgresql/data
+
+  friendship.api:
+    image: friendship.api
+    build:
+      context: .
+      dockerfile: src/Services/Friendship/Friendship.API/Dockerfile
+    ports:
+      - "5012:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5435;Database=sm-FriendshipDb;
+    depends_on:
+      - friendship-db
+
+  friendship-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-FriendshipDb
+    ports:
+      - "5435:5432"
+    volumes:
+      - friendship_data:/var/lib/postgresql/data
+
+  media.api:
+    image: media.api
+    build:
+      context: .
+      dockerfile: src/Services/Media/Media.API/Dockerfile
+    ports:
+      - "5013:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5436;Database=sm-MediaDb;
+    depends_on:
+      - media-db
+
+  media-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-MediaDb
+    ports:
+      - "5436:5432"
+    volumes:
+      - media_data:/var/lib/postgresql/data
+
+  user.api:
     image: user.api
     build:
       context: .
       dockerfile: src/Services/User/User.API/Dockerfile
+    ports:
+      - "5014:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5437;Database=sm-UserDb;
+    depends_on:
+      - user-db
+
+  user-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-UserDb
+    ports:
+      - "5437:5432"
+    volumes:
+      - user_data:/var/lib/postgresql/data
+        
+  post.api:
+    image: post.api
+    build:
+      context: .
+      dockerfile: src/Services/Post/Post.API/Dockerfile
+    ports:
+      - "5015:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5438;Database=sm-PostDb;
+    depends_on:
+      - post-db
+
+  post-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-PostDb
+    ports:
+      - "5438:5432"
+    volumes:
+      - post_data:/var/lib/postgresql/data
+        
+  notification.api:
+    image: notification.api
+    build:
+      context: .
+      dockerfile: src/Services/Notification/Notification.API/Dockerfile
+    ports:
+      - "5016:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5439;Database=sm-NotificationDb;
+    depends_on:
+      - notification-db
+
+  notification-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-NotificationDb
+    ports:
+      - "5439:5432"
+    volumes:
+      - notification_data:/var/lib/postgresql/data
+
+volumes:
+  chat_data:
+  comment_data:
+  friendship_data:
+  media_data:
+  user_data:
+  post_data:
+  notification_data:
