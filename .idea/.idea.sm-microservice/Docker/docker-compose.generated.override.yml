@@ -4,6 +4,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/Chat/Chat.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -13,7 +14,7 @@ services:
     image: "chat.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Chat/Chat.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
@@ -21,6 +22,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/Comment/Comment.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -30,7 +32,7 @@ services:
     image: "comment.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Comment/Comment.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
@@ -38,6 +40,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/Friendship/Friendship.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -47,7 +50,7 @@ services:
     image: "friendship.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Friendship/Friendship.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
@@ -55,6 +58,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/Media/Media.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -65,7 +69,7 @@ services:
     image: "media.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Media/Media.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
@@ -73,6 +77,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/Notification/Notification.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -82,7 +87,7 @@ services:
     image: "notification.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Notification/Notification.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
@@ -90,6 +95,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/Post/Post.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -99,7 +105,7 @@ services:
     image: "post.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Post/Post.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
@@ -107,6 +113,7 @@ services:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
       dockerfile: "src/Services/User/User.API/Dockerfile"
+      target: "base"
     command: []
     entrypoint:
     - "dotnet"
@@ -116,7 +123,7 @@ services:
     image: "user.api:dev"
     ports: []
     volumes:
-    - "/Users/onurcanogul/.nuget/packages:/root/.nuget/packages"
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/User/User.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"

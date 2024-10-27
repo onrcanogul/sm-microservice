@@ -24,6 +24,7 @@ public class ApplicationCrudService<T, TDto, TContext>(IRepository<T, TContext> 
         bool disableTracking = true)
     {
         var entity = await repository.GetFirstOrDefaultAsync(predicate, orderBy, includeProperties, disableTracking);
+        if(entity == null) throw new NullReferenceException();
         var dto = mapper.Map<TDto>(entity);
         return ServiceResponse<TDto>.Success(dto, StatusCodes.Status200OK);
     }

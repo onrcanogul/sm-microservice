@@ -167,6 +167,30 @@
     volumes:
       - notification_data:/var/lib/postgresql/data
 
+  stats.api:
+    image: stats.api
+    build:
+      context: .
+      dockerfile: src/Services/Stats/Stats.API/Dockerfile
+    ports:
+      - "5017:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=User Id=postgres; Password=Password12*;Host=localhost;Port=5440;Database=sm-StatsDb;
+    depends_on:
+      - stats-db
+
+  stats-db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Password12*
+      POSTGRES_DB: sm-StatsDb
+    ports:
+      - "5440:5432"
+    volumes:
+      - stats_data:/var/lib/postgresql/data
+
 volumes:
   chat_data:
   comment_data:
@@ -175,3 +199,4 @@ volumes:
   user_data:
   post_data:
   notification_data:
+  stats_data:
