@@ -21,7 +21,7 @@ public class PostController(IPostService service) : AbstractBaseController
     
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] PostDto dto)
-        => ControllerResponse(await service.CreateAsync(dto));
+        => ControllerResponse(await service.Create(dto));
     
     [HttpPut]
     public async Task<IActionResult> Update([FromBody] PostDto dto)
