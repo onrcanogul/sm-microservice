@@ -2,6 +2,7 @@ using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Shared;
 using Shared.Base.Extensions;
+using Shared.Events;
 using Stats.API.Consumers;
 using Stats.API.Context;
 using Stats.API.Services;
@@ -18,10 +19,12 @@ builder.Services.AddDbContext<StatsDbContext>(options => options.UseNpgsql(build
 builder.Services.AddMassTransit(conf =>
 {
     conf.AddConsumer<PostCreatedEventConsumer>();
+    conf.AddConsumer<CommentCreatedEventConsumer>();
     conf.UsingRabbitMq((context, configure) =>
     {
         configure.Host(builder.Configuration.GetConnectionString("RabbitMqConnection"));
         configure.ReceiveEndpoint(QueueSettings.Post_Stats_Post_Created_Event_Queue, e => e.ConfigureConsumer<PostCreatedEventConsumer>(context));
+        configure.ReceiveEndpoint(QueueSettings.Comment_Stats_Comment_Created_Event_Queue, e => e.ConfigureConsumer<CommentCreatedEventConsumer>(context));
     });
 });
 

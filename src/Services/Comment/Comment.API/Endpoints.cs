@@ -15,7 +15,7 @@ public static class Endpoints
         service.GetByUser(userId));
 
         app.MapPost("/comment", (ICommentService service, CommentDto dto) => 
-            service.CreateAsync(dto));
+            service.Create(dto));
 
         app.MapPut("/comment", (ICommentService service, CommentDto dto) => 
             service.UpdateAsync(dto));

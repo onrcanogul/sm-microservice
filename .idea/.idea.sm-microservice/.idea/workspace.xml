@@ -5,6 +5,7 @@
     <projectFile profileName="https">src/Services/Chat/Chat.API/Chat.API.csproj</projectFile>
     <projectFile profileName="http">src/Services/Comment/Comment.API/Comment.API.csproj</projectFile>
     <projectFile profileName="https">src/Services/Comment/Comment.API/Comment.API.csproj</projectFile>
+    <projectFile profileName="CommentOutboxService">src/Services/Comment/CommentOutboxService/CommentOutboxService.csproj</projectFile>
     <projectFile profileName="http">src/Services/Friendship/Friendship.API/Friendship.API.csproj</projectFile>
     <projectFile profileName="https">src/Services/Friendship/Friendship.API/Friendship.API.csproj</projectFile>
     <projectFile profileName="http">src/Services/Media/Media.API/Media.API.csproj</projectFile>
@@ -23,16 +24,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="291cea2b-15f3-47a9-a005-e8a494ec1133" name="Changes" comment="">
+    <list default="true" id="291cea2b-15f3-47a9-a005-e8a494ec1133" name="Changes" comment="outbox inbox pattern added for post created event">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/IOrderOutboxDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/IPostOutboxDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/OrderOutboxDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/PostOutboxDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/PostOutboxService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/PostOutboxService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sm-microservice.sln" beforeDir="false" afterPath="$PROJECT_DIR$/sm-microservice.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Contexts/CommentDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Contexts/CommentDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Endpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Endpoints.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Services/Abstracts/ICommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Services/Abstracts/ICommentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Services/Concretes/CommentService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Services/Concretes/CommentService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Jobs/OutboxTablePublisherJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Jobs/OutboxTablePublisherJob.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Context/StatsDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Context/StatsDbContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Services/Concretes/StatsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Services/Concretes/StatsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Stats.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Stats.API.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Shared/Shared/QueueSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared/QueueSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,6 +152,21 @@
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Services/Chat/Chat.API/Chat.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="CommentOutboxService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/Services/Comment/CommentOutboxService/CommentOutboxService.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="CommentOutboxService" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -569,6 +586,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue=".NET Launch Settings Profile.CommentOutboxService" />
       <item itemvalue=".NET Launch Settings Profile.PostOutboxService" />
       <item itemvalue=".NET Launch Settings Profile.Stats.API: http" />
       <item itemvalue=".NET Launch Settings Profile.Stats.API: https" />
@@ -614,7 +632,7 @@
       <workItem from="1729956361137" duration="810000" />
       <workItem from="1729959218631" duration="15273000" />
       <workItem from="1730026680871" duration="8626000" />
-      <workItem from="1730044930956" duration="4021000" />
+      <workItem from="1730044930956" duration="8815000" />
     </task>
     <task id="LOCAL-00001" summary="project created">
       <option name="closed" value="true" />
@@ -736,7 +754,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730035185389</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="outbox inbox pattern added for post created event">
+      <option name="closed" value="true" />
+      <created>1730052475602</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1730052475602</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -762,7 +788,8 @@
     <MESSAGE value="dockerfile and docker-compose.yml implemented" />
     <MESSAGE value="stats service added" />
     <MESSAGE value="post outbox added also outbox table service added but not finished" />
-    <option name="LAST_COMMIT_MESSAGE" value="post outbox added also outbox table service added but not finished" />
+    <MESSAGE value="outbox inbox pattern added for post created event" />
+    <option name="LAST_COMMIT_MESSAGE" value="outbox inbox pattern added for post created event" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

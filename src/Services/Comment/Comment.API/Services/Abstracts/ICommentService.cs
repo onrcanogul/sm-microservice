@@ -10,4 +10,5 @@ public interface ICommentService : IApplicationCrudService<Models.Comment, Comme
 {
     Task<ServiceResponse<List<CommentDto>>> GetByPost(Guid postId);
     Task<ServiceResponse<List<CommentDto>>> GetByUser(Guid userId);
+    Task<ServiceResponse<NoContent>> Create(CommentDto dto);
 }

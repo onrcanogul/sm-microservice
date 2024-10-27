@@ -6,7 +6,7 @@ public class StatsDbContext(DbContextOptions<StatsDbContext> options) : DbContex
 {
     public DbSet<Models.Stats> Stats { get; set; }
     public DbSet<Models.Inbox.PostInbox> PostInboxes { get; set; }
-
+    public DbSet<Models.Inbox.CommentInbox> CommentInboxes { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

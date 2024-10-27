@@ -1,22 +1,16 @@
-using MassTransit;
-using PostOutboxService.Jobs;
+
+using CommentOutboxService.Database;
+using CommentOutboxService.Jobs;
 using Quartz;
 
 var builder = Host.CreateApplicationBuilder(args);
-
-builder.Services.AddMassTransit(conf =>
-{
-    conf.UsingRabbitMq((context, configure) =>
-    {
-        configure.Host(builder.Configuration.GetConnectionString("RabbitMqConnection"));
-    });
-});
+builder.Services.AddSingleton<ICommentOutboxDatabase, CommentOutboxDatabase>();
 builder.Services.AddQuartz(configure =>
 {
-    JobKey jobKey = new("PostOutboxPublishJob");
+    JobKey jobKey = new("CommentOutboxPublishJob");
     configure.AddJob<OutboxTablePublisherJob>(opt => opt.WithIdentity(jobKey));
 
-    TriggerKey triggerKey = new("PostOutboxPublishTrigger");
+    TriggerKey triggerKey = new("CommentOutboxPublishTrigger");
     configure.AddTrigger(options => options.ForJob(jobKey)
         .WithIdentity(triggerKey)
         .StartAt(DateTime.UtcNow)
@@ -25,9 +19,5 @@ builder.Services.AddQuartz(configure =>
             .RepeatForever()));
 });
 builder.Services.AddQuartzHostedService(opt => opt.WaitForJobsToComplete = true);
-
-
 var host = builder.Build();
 host.Run();
-
-
