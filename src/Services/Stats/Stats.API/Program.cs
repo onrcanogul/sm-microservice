@@ -1,5 +1,8 @@
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
+using Shared;
 using Shared.Base.Extensions;
+using Stats.API.Consumers;
 using Stats.API.Context;
 using Stats.API.Services;
 
@@ -11,6 +14,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped(typeof(IStatsService<,,>), typeof(StatsService<,,>));
 builder.Services.AddEfCoreServices();
 builder.Services.AddDbContext<StatsDbContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("PostgresConnection")));
+
+builder.Services.AddMassTransit(conf =>
+{
+    conf.AddConsumer<PostCreatedEventConsumer>();
+    conf.UsingRabbitMq((context, configure) =>
+    {
+        configure.Host(builder.Configuration.GetConnectionString("RabbitMqConnection"));
+        configure.ReceiveEndpoint(QueueSettings.Post_Stats_Post_Created_Event_Queue, e => e.ConfigureConsumer<PostCreatedEventConsumer>(context));
+    });
+});
 
 var app = builder.Build();
 

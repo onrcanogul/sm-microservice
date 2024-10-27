@@ -4,7 +4,7 @@ using Dapper;
 
 namespace PostOutboxService.Database;
 
-public class OrderOutboxDatabase(IConfiguration configuration)
+public class PostOutboxDatabase(IConfiguration configuration)
 {
     readonly IDbConnection _dbConnection = new SqlConnection(configuration.GetConnectionString("PostgresConnection"));
 

@@ -2,7 +2,7 @@ using System.Data;
 
 namespace PostOutboxService.Database;
 
-public interface IOrderOutboxDatabase
+public interface IPostOutboxDatabase
 {
     IDbConnection Connection { get; }
     bool DataReaderState { get; }

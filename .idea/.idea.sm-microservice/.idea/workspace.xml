@@ -23,18 +23,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="291cea2b-15f3-47a9-a005-e8a494ec1133" name="Changes" comment="stats service added">
+    <list default="true" id="291cea2b-15f3-47a9-a005-e8a494ec1133" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-microservice.sln" beforeDir="false" afterPath="$PROJECT_DIR$/sm-microservice.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-microservice.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/sm-microservice.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Contexts/PostDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Contexts/PostDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Post.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Post.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Services/Abstracts/IPostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Services/Abstracts/IPostService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Services/Concretes/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Services/Concretes/PostService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Shared/Base/Extensions/SharedExtension.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared/Base/Extensions/SharedExtension.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Shared/Shared/Shared.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared/Shared.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/IOrderOutboxDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/IPostOutboxDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/OrderOutboxDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Database/PostOutboxDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/PostOutboxService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/PostOutboxService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Context/StatsDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Context/StatsDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Services/Concretes/StatsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Services/Concretes/StatsService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Stats.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/Stats.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Shared/QueueSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared/QueueSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,34 +81,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Chat.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Comment.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Friendship.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Media.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Notification.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Post.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Stats.API: http.executor": "Run",
-    ".NET Launch Settings Profile.User.API: http.executor": "Run",
-    ".NET Project.User.API.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Chat.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Comment.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Friendship.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Media.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Notification.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Post.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Stats.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.User.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.User.API.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "PLAIN_TEXT"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RiderProblemsViewState">
     <option name="showPreview" value="true" />
   </component>
@@ -614,7 +613,8 @@
       <workItem from="1729877156310" duration="11360000" />
       <workItem from="1729956361137" duration="810000" />
       <workItem from="1729959218631" duration="15273000" />
-      <workItem from="1730026680871" duration="6589000" />
+      <workItem from="1730026680871" duration="8626000" />
+      <workItem from="1730044930956" duration="4021000" />
     </task>
     <task id="LOCAL-00001" summary="project created">
       <option name="closed" value="true" />
@@ -728,7 +728,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730029123808</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="post outbox added also outbox table service added but not finished">
+      <option name="closed" value="true" />
+      <created>1730035185389</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1730035185389</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -753,7 +761,8 @@
     <MESSAGE value="databases added" />
     <MESSAGE value="dockerfile and docker-compose.yml implemented" />
     <MESSAGE value="stats service added" />
-    <option name="LAST_COMMIT_MESSAGE" value="stats service added" />
+    <MESSAGE value="post outbox added also outbox table service added but not finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="post outbox added also outbox table service added but not finished" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
