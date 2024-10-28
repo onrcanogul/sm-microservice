@@ -11,7 +11,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEfCoreServices();
-builder.Services.AddInboxOutboxServices();
 builder.Services.AddScoped<IPostService, PostService>();
 builder.Services.AddAutoMapper(Assembly.GetAssembly(typeof(Mapping)));
 builder.Services.AddEndpointsApiExplorer();

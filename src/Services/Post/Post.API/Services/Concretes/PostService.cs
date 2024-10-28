@@ -1,13 +1,11 @@
 using AutoMapper;
 using MassTransit;
-using Newtonsoft.Json;
 using Post.API.Contexts;
 using Post.API.Models;
 using Post.API.Models.Dtos;
 using Post.API.Services.Abstracts;
 using Shared.Base;
 using Shared.Base.Repository;
-using Shared.Base.Repository.Outbox;
 using Shared.Base.Service;
 using Shared.Base.UnitOfWork;
 using Shared.Events;
