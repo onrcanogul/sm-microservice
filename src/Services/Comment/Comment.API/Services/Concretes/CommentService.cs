@@ -6,14 +6,16 @@ using Comment.API.Models.Dto;
 using Comment.API.Services.Abstracts;
 using Shared.Base;
 using Shared.Base.Repository;
-using Shared.Base.Repository.Outbox;
 using Shared.Base.Service;
 using Shared.Base.UnitOfWork;
 using Shared.Events;
 
 namespace Comment.API.Services.Concretes;
 
-public class CommentService(IRepository<Models.Comment, CommentDbContext> repository, IMapper mapper, IUnitOfWork<CommentDbContext> unitOfWork, IOutboxRepository<CommentOutbox, CommentDbContext> outboxRepository) 
+public class CommentService(
+    IRepository<Models.Comment, CommentDbContext> repository,
+    IMapper mapper, IUnitOfWork<CommentDbContext> unitOfWork,
+    CommentDbContext context) 
     : ApplicationCrudService<Models.Comment, CommentDto, CommentDbContext>(repository, mapper, unitOfWork), ICommentService
 {
     public async Task<ServiceResponse<List<CommentDto>>> GetByPost(Guid postId)
@@ -48,7 +50,7 @@ public class CommentService(IRepository<Models.Comment, CommentDbContext> reposi
             Type = nameof(CommentCreatedEvent)
         };
 
-        await outboxRepository.SaveEventAsync(outbox);
+        await context.CommentOutboxes.AddAsync(outbox);
         await unitOfWork.CommitAsync();
         
         return ServiceResponse<NoContent>.Success(StatusCodes.Status201Created);

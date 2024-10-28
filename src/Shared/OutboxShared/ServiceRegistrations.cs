@@ -1,6 +1,9 @@
 using MassTransit;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OutboxShared.Database;
+using OutboxShared.Services.Abstraction;
+using OutboxShared.Services.Concrete;
 using Quartz;
 
 namespace OutboxShared;
@@ -31,6 +34,8 @@ public static class ServiceRegistration
                     .RepeatForever()));
         });
         services.AddQuartzHostedService(opt => opt.WaitForJobsToComplete = true);
+        services.AddSingleton<IOutboxDatabase, OutboxDatabase>();
+        services.AddSingleton(typeof(IOutboxService<>), typeof(OutboxService<>));
         
         return services;
     }

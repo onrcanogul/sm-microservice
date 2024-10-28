@@ -20,7 +20,7 @@ public class PostService(
     IMapper mapper,
     IUnitOfWork<PostDbContext> unitOfWork,
     ISendEndpointProvider sendEndpointProvider,
-    IOutboxRepository<PostOutbox,PostDbContext> outboxRepository)
+    PostDbContext context)
     : ApplicationCrudService<Models.Post,PostDto,PostDbContext>(repository, mapper, unitOfWork), IPostService
 {
     public async Task<ServiceResponse<List<PostDto>>> GetByUser(Guid userId)
@@ -36,7 +36,7 @@ public class PostService(
         await repository.CreateAsync(mapper.Map<Models.Post>(dto));
         
         PostCreatedEvent @event = new() { IdempotentToken = new Guid(), PostId = dto.Id.Value, };
-        await outboxRepository.SaveEventAsync(new PostOutbox
+        await context.PostOutboxes.AddAsync(new PostOutbox
         {
             IdempotentToken = @event.IdempotentToken,
             OccuredOn = DateTime.UtcNow,

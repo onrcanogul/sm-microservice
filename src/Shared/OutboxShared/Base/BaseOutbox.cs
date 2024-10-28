@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Post.API.Models;
+namespace OutboxShared.Base;
 
-public class PostOutbox 
+public class BaseOutbox
 {
     [Key]
     public Guid IdempotentToken { get; set; }
