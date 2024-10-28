@@ -25,8 +25,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="291cea2b-15f3-47a9-a005-e8a494ec1133" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-microservice.sln" beforeDir="false" afterPath="$PROJECT_DIR$/sm-microservice.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Services/Concretes/PostService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Services/Concretes/PostService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Jobs/OutboxTablePublisherJob.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/PostOutboxService/Jobs/OutboxTablePublisherJob.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shared/Shared/QueueSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shared/Shared/QueueSettings.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -625,6 +626,7 @@
       <workItem from="1730026680871" duration="8626000" />
       <workItem from="1730044930956" duration="10296000" />
       <workItem from="1730104271060" duration="443000" />
+      <workItem from="1730104718370" duration="6250000" />
     </task>
     <task id="LOCAL-00001" summary="project created">
       <option name="closed" value="true" />
@@ -762,7 +764,31 @@
       <option name="project" value="LOCAL" />
       <updated>1730057232584</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="base outbox registration implemented">
+      <option name="closed" value="true" />
+      <created>1730105716678</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1730105716678</updated>
+    </task>
+    <task id="LOCAL-00019" summary="dry implemented into outboxes services">
+      <option name="closed" value="true" />
+      <created>1730115921085</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1730115921085</updated>
+    </task>
+    <task id="LOCAL-00020" summary="bug fixed">
+      <option name="closed" value="true" />
+      <created>1730116257931</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1730116257931</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -790,7 +816,10 @@
     <MESSAGE value="post outbox added also outbox table service added but not finished" />
     <MESSAGE value="outbox inbox pattern added for post created event" />
     <MESSAGE value="comment created event added and outbox-inbox pattern implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="comment created event added and outbox-inbox pattern implemented" />
+    <MESSAGE value="base outbox registration implemented" />
+    <MESSAGE value="dry implemented into outboxes services" />
+    <MESSAGE value="bug fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="bug fixed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -55,4 +55,25 @@ public class CommentService(
         
         return ServiceResponse<NoContent>.Success(StatusCodes.Status201Created);
     }
+
+    public async Task<ServiceResponse<NoContent>> Delete(Guid id)
+    {
+        var entity = await repository.GetFirstOrDefaultAsync(x => x.Id == id) ?? throw new NullReferenceException();
+        repository.Delete(entity);
+        var @event = new CommentDeletedEvent
+        {
+            CommentId = entity.Id,
+            IdempotentToken = new Guid()
+        };
+        await context.CommentOutboxes.AddAsync(new CommentOutbox()
+        {
+            IdempotentToken = @event.IdempotentToken,
+            OccuredOn = DateTime.UtcNow,
+            Payload = JsonSerializer.Serialize(@event),
+            ProcessedOn = null,
+            Type = nameof(CommentDeletedEvent)
+        });
+        await unitOfWork.CommitAsync();
+        return ServiceResponse<NoContent>.Success(StatusCodes.Status200OK);
+    }
 }

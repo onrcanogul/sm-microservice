@@ -47,4 +47,21 @@ public class PostService(
         
         return ServiceResponse<NoContent>.Success(StatusCodes.Status201Created);
     }
+
+    public async Task<ServiceResponse<NoContent>> Delete(Guid id)
+    {
+        var entity = await repository.GetFirstOrDefaultAsync(x => x.Id == id) ?? throw new ArgumentNullException();
+        repository.Delete(entity);
+        PostDeletedEvent @event = new() { IdempotentToken = new Guid(), PostId = entity.Id };
+        await context.PostOutboxes.AddAsync(new PostOutbox
+        {
+            IdempotentToken = @event.IdempotentToken,
+            OccuredOn = DateTime.UtcNow,
+            Payload = JsonSerializer.Serialize(@event),
+            ProcessedOn = null,
+            Type = nameof(PostDeletedEvent)
+        });
+        await unitOfWork.CommitAsync();
+        return ServiceResponse<NoContent>.Success(StatusCodes.Status200OK);
+    }
 }

@@ -17,15 +17,28 @@ public class OutboxTablePublisherJob(IOutboxDatabase database, IOutboxService<Po
     {
         await service.Process(async outbox =>
         {
-            if (outbox.Type == nameof(PostCreatedEvent))
+            switch (outbox.Type)
             {
-                var postCreatedEvent = JsonSerializer.Deserialize<PostCreatedEvent>(outbox.Payload);
-                if (postCreatedEvent == null) throw new NullReferenceException();
-
-                var sendEndPoint =
-                    await sendEndpointProvider.GetSendEndpoint(
-                        new Uri(QueueSettings.Post_Stats_Post_Created_Event_Queue));
-                await sendEndPoint.Send(postCreatedEvent);
+                case nameof(PostCreatedEvent):
+                {
+                    var postCreatedEvent = JsonSerializer.Deserialize<PostCreatedEvent>(outbox.Payload);
+                    if (postCreatedEvent == null) throw new NullReferenceException();
+                    var sendEndPoint = await sendEndpointProvider.GetSendEndpoint(
+                            new Uri(QueueSettings.Post_Stats_Post_Created_Event_Queue));
+                    await sendEndPoint.Send(postCreatedEvent);
+                    break;
+                }
+                case nameof(PostDeletedEvent):
+                {
+                    var postDeletedEvent = JsonSerializer.Deserialize<PostDeletedEvent>(outbox.Payload);
+                    if (postDeletedEvent == null) throw new NullReferenceException();
+                    var sendEndPoint = await sendEndpointProvider.GetSendEndpoint(
+                        new Uri(QueueSettings.Post_Stats_Post_Deleted_Event_Queue));
+                    await sendEndPoint.Send(postDeletedEvent);
+                    break;
+                }
+                default:
+                    throw new NullReferenceException();
             }
         });
     }
