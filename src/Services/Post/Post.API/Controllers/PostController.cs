@@ -19,15 +19,15 @@ public class PostController(IPostService service) : AbstractBaseController
     public async Task<IActionResult> GetByUser([FromRoute] Guid userId)
         => ControllerResponse(await service.GetByUser(userId));
     
-    [HttpPost]
+    [HttpPost("secure")]
     public async Task<IActionResult> Create([FromBody] PostDto dto)
         => ControllerResponse(await service.Create(dto));
     
-    [HttpPut]
+    [HttpPut("secure")]
     public async Task<IActionResult> Update([FromBody] PostDto dto)
         => ControllerResponse(await service.UpdateAsync(dto));
     
-    [HttpDelete("{id}")]
+    [HttpDelete("secure/{id}")]
     public async Task<IActionResult> Delete(Guid id)
         => ControllerResponse(await service.DeleteAsync(id));
 }

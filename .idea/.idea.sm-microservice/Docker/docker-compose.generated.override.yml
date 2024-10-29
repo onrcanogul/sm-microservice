@@ -1,5 +1,24 @@
 # This is a generated file. Not intended for manual editing.
 services:
+  api-gateway:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Gateway/APIGateway/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/APIGateway.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "apıgateway:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Gateway/APIGateway:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
   chat.api:
     build:
       context: "/Users/onurcanogul/RiderProjects/sm-microservice"
@@ -107,6 +126,24 @@ services:
     volumes:
     - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
     - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Post/Post.API:/app:rw"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
+    working_dir: "/app"
+  stats.api:
+    build:
+      context: "/Users/onurcanogul/RiderProjects/sm-microservice"
+      dockerfile: "src/Services/Stats/Stats.API/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net8.0/Stats.API.dll"
+    environment:
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "stats.api:dev"
+    ports: []
+    volumes:
+    - "/Users/onurcanogul/.nuget/packages:/home/app/.nuget/packages"
+    - "/Users/onurcanogul/RiderProjects/sm-microservice/src/Services/Stats/Stats.API:/app:rw"
     - "/Users/onurcanogul/RiderProjects/sm-microservice:/src:rw"
     working_dir: "/app"
   user.api:

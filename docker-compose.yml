@@ -1,4 +1,20 @@
 ﻿services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: src/Gateway/APIGateway/Dockerfile
+    ports:
+      - "5001:8080"
+    depends_on:
+      - post.api
+      - comment.api
+      - chat.api
+      - friendship.api
+      - media.api
+      - user.api
+      - notification.api
+      - stats.api
+  
   chat.api:
     image: chat.api
     build:

@@ -14,13 +14,13 @@ public static class Endpoints
         app.MapGet("/comment/user/{userId:guid}", ([FromRoute] Guid userId,ICommentService service) => 
         service.GetByUser(userId));
 
-        app.MapPost("/comment", (ICommentService service, CommentDto dto) => 
+        app.MapPost("/secure/comment", (ICommentService service, CommentDto dto) => 
             service.Create(dto));
 
-        app.MapPut("/comment", (ICommentService service, CommentDto dto) => 
+        app.MapPut("/secure/comment", (ICommentService service, CommentDto dto) => 
             service.UpdateAsync(dto));
     
-        app.MapDelete("/comment/{id:guid}", (ICommentService service, Guid id) => 
+        app.MapDelete("/secure/comment/{id:guid}", (ICommentService service, Guid id) => 
             service.DeleteAsync(id));
 
         return app;

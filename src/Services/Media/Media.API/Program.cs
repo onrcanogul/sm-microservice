@@ -27,10 +27,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapPost("/api/post/media/{productId:guid}",async (IMediaService<PostImage> mediaService,[FromForm] IFormFileCollection files,[FromRoute] Guid productId) 
+app.MapPost("/api/secure/post/media/{productId:guid}",async (IMediaService<PostImage> mediaService,[FromForm] IFormFileCollection files,[FromRoute] Guid productId) 
     => await mediaService.Upload(files,"post-images",productId));
     
-app.MapPost("/api/user/media/{userId:guid}", async (IMediaService<UserImage> mediaService, [FromForm] IFormFileCollection files,[FromRoute] Guid userId) 
+app.MapPost("/api/secure/user/media/{userId:guid}", async (IMediaService<UserImage> mediaService, [FromForm] IFormFileCollection files,[FromRoute] Guid userId) 
     => await mediaService.Upload(files,"user-images",userId));
 
 app.Run();

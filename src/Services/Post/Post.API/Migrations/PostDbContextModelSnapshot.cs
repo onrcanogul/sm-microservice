@@ -55,6 +55,31 @@ namespace Post.API.Migrations
 
                     b.ToTable("Posts");
                 });
+
+            modelBuilder.Entity("Post.API.Models.PostOutbox", b =>
+                {
+                    b.Property<Guid>("IdempotentToken")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("OccuredOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Payload")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("ProcessedOn")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("IdempotentToken");
+
+                    b.ToTable("PostOutboxes");
+                });
 #pragma warning restore 612, 618
         }
     }
