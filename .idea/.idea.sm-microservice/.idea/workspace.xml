@@ -28,18 +28,25 @@
   <component name="ChangeListManager">
     <list default="true" id="291cea2b-15f3-47a9-a005-e8a494ec1133" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sm-microservice/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.sm-microservice/Docker/docker-compose.generated.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.sm-microservice/Docker/docker-compose.generated.override.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sm-microservice.sln" beforeDir="false" afterPath="$PROJECT_DIR$/sm-microservice.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Chat/Chat.API/Controllers/ChatController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Chat/Chat.API/Controllers/ChatController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Endpoints.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Endpoints.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Migrations/CommentDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/Migrations/CommentDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Friendship/Friendship.API/Controllers/FriendshipController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Friendship/Friendship.API/Controllers/FriendshipController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Media/Media.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Media/Media.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.API/Controllers/NotificationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.API/Controllers/NotificationController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Controllers/PostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Controllers/PostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/Migrations/PostDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/Migrations/PostDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Services/User/User.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/User/User.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gateway/APIGateway/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gateway/APIGateway/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Gateway/APIGateway/ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gateway/APIGateway/ocelot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Chat/Chat.API/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Chat/Chat.API/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Chat/Chat.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Chat/Chat.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Comment/Comment.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Comment/Comment.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Friendship/Friendship.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Friendship/Friendship.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Friendship/Friendship.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Friendship/Friendship.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Media/Media.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Media/Media.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Media/Media.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Media/Media.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Notification/Notification.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Notification/Notification.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Post/Post.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Post/Post.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/Stats/Stats.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/Stats/Stats.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/User/User.API/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/User/User.API/appsettings.Development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/User/User.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/User/User.API/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +105,7 @@
     &quot;.NET Launch Settings Profile.Stats.API: http.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.User.API: http.executor&quot;: &quot;Run&quot;,
     &quot;.NET Project.User.API.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.User.API/Dockerfile.executor&quot;: &quot;Run&quot;,
     &quot;Docker.docker-compose.yml: Compose Deployment.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -694,7 +702,10 @@
       <workItem from="1730104271060" duration="443000" />
       <workItem from="1730104718370" duration="6250000" />
       <workItem from="1730134245005" duration="2859000" />
-      <workItem from="1730189359213" duration="7151000" />
+      <workItem from="1730189359213" duration="8375000" />
+      <workItem from="1730284541513" duration="4714000" />
+      <workItem from="1730290157113" duration="756000" />
+      <workItem from="1730310236848" duration="1666000" />
     </task>
     <task id="LOCAL-00001" summary="project created">
       <option name="closed" value="true" />
@@ -864,7 +875,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730136500181</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="api-gateway implemented">
+      <option name="closed" value="true" />
+      <created>1730197243303</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1730197243303</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -896,7 +915,8 @@
     <MESSAGE value="dry implemented into outboxes services" />
     <MESSAGE value="bug fixed" />
     <MESSAGE value="delete services and events implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete services and events implemented" />
+    <MESSAGE value="api-gateway implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="api-gateway implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
